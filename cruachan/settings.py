@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'pedidos.apps.PedidosConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -72,11 +75,23 @@ WSGI_APPLICATION = 'cruachan.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+'''
+Pasos para inicializar la BD:
+create database cruachan;
+create role admincrua with encrypted password 'altapasswordviejo';
+alter role "admincrua" with login;
+grant database owner to admincrua;
+'''
+
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'cruachan',
+        'USER': 'admincrua',
+        'PASSWORD': 'altapasswordviejo',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
