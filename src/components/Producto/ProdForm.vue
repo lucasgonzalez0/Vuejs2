@@ -1,6 +1,9 @@
 <template>
   <div>
       <b-container>
+        <b-card class="text-center">
+          Acá usted podrá cargar un nuevo producto
+        </b-card>
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group id="nombre"
                         label="Nombre del producto:"

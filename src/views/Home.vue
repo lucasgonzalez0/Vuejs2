@@ -1,36 +1,34 @@
 <template>
+    
     <div class="container">
-        <b-container fluid class="text-light text-center">
-            <b-row class="mb-3">
-                <b-col md="4">
-                    <b-button exact to="/nuevopedido" variant="warning">
-                    NUEVO PEDIDO</b-button>
-                </b-col>
-                
-            </b-row>
-            <b-row class="mb-3">
-                <b-col md="4">
-                    <b-button exact to="/listapedido" variant="success">
-                     VER PEDIDOS</b-button>
-                </b-col>
-            </b-row>
-            <b-row>
-                <b-col cols="12" class="mr-auto p-4">
-                    <b-button exact to="/vistanuevotipprod" variant="primary">
-                    PRODUCTOS</b-button>
-                </b-col>
-            </b-row>
-            <b-row>
-                <b-col cols="12" class="mr-auto p-4">
-                    <b-button exact to="/vistaprom" variant="danger">
-                    PROMOCIONES</b-button>
-                </b-col>
-            </b-row>
+        <div>
+    <b-card-group deck
+                  class="mb-3">
+        <b-card bg-variant="primary"
+                text-variant="white"
+                header="Pedidos"
+                class="text-center">
+             <div class="w-100 p-3 bg-secondary ">
+                <b-link to="/NuevoPedido">
+                    <b-button style="font-size:20px">NUEVO PEDIDOS</b-button>
+                </b-link>
+            </div>   
             
-
-</b-container>
-
-
+        </b-card>
+        <b-card bg-variant="secondary"
+                text-variant="white"
+                header="Secondary"
+                class="text-center">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </b-card>
+        <b-card bg-variant="success"
+                text-variant="white"
+                header="Success"
+                class="text-center">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </b-card>
+    </b-card-group>
+        </div>
     </div>
 </template>
 
