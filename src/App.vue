@@ -1,23 +1,26 @@
 <template>
   <div id="app">
-      <nav-bar></nav-bar>
+    <v-app dark>
+      <v-content>
+      <navbar></navbar>
       <home></home>
        
 
       <router-view/>  
+      </v-content>
+    </v-app>
   </div>
 </template>
 
 <script>
-  import NavBar from '@/components/NavBar.vue'
-
+  import Navbar from '@/components/Navbar.vue'
   import Home from '@/views/Home.vue'
 
 
   export default {
     
     components: {
-      NavBar, Home
+      Navbar, Home
     }
   }
 </script>

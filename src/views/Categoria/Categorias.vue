@@ -1,7 +1,7 @@
 <template>
     <div>
        
-            
+        <cmp-cate-form></cmp-cate-form>    
         <CategoriaLista></CategoriaLista>
          
          
@@ -10,9 +10,10 @@
 
 <script>
 import CategoriaLista from '@/components/Categoria/CategoriaLista'
+import CmpCateForm from '@/components/Categoria/CmpCateForm'
     export default {
         components: {
-            CategoriaLista
+            CategoriaLista, CmpCateForm
         }
         
     }
