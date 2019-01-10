@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 1547066518158,
+      "nombre": "Lomito",
+      "descripcion": "lomito con papas",
+      "precio": "167",
+      "done": false
+    },
+    {
+      "id": 1547067818349,
+      "nombre": "Sandiwch de miga ",
+      "descripcion": "Con palmito",
+      "precio": "80",
+      "tipoProducto": "3",
+      "done": false
+    },
+    {
+      "id": 1547067821054,
+      "nombre": "Sandiwch de miga ",
+      "descripcion": "Con palmito",
+      "precio": "80",
+      "done": false
+    },
+    {
+      "id": 1547151407784,
+      "nombre": "Empanada J y q",
+      "descripcion": "asdasd",
+      "precio": "25",
+      "tipoProducto": "4",
+      "done": false
+    }
+  ]
+}

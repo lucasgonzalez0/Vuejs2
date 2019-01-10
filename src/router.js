@@ -20,25 +20,27 @@ export default new Router({
 
 
     {
-      path: '/ListadoProducto',
-      name: 'listaproducto',
-      component: () => import('./views/Producto/Producto.vue')
+      path: '/Productos',
+      name: 'productos',
+      component: () => import('./views/Producto/Productos.vue')
     },
     {
-      path: '/nuevoproducto',
+      path: '/Nuevoproducto',
       name: 'nuevoproducto',
       component: () => import('./views/Producto/ProductoCreate.vue')
    
     },
     {
+      path: '/products/:id/update',
+      name: 'products-update',
+      component: () => import('./views/Producto/ProductUpdate.vue')
+   
+    },
+
+    {
       path: '/NuevoTipoProducto',
       name: 'vistanuevotipprod',
       component: () => import('./views/TipoProducto/VistaNuevoTipProd.vue')
-    },
-    {
-      path: '/vistaprom',
-      name: 'vistaprom',
-      component: () => import('./views/Promociones/VistaListaPromo.vue')
     },
     {
       path: '/categorias',

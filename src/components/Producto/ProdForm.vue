@@ -1,57 +1,60 @@
 <template>
   <div>
       <b-container>
-        <b-card class="text-center">
+        <b-card class="text-center" style="color: red">
           Acá usted podrá cargar un nuevo producto
         </b-card>
-        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-        <b-form-group id="nombre"
-                        label="Nombre del producto:"
-                        label-for="nombreProducto"
-                        description="Ingrese el nombre de un producto. Por ejemplo:  Lomito Especial.">
-            <b-form-input id="nombreProducto"
+        
+        <b-form @submit.prevent="$emit('process-product', product)" @reset="onReset">
+        <b-form-group id="product"
+                        label="Producto"
+                        label-for="product">
+            <b-form-input id="nombre"
                         type="text"
-                        v-model="form.name"
+                        v-model="product.nombre"
                         required
                         placeholder="Ej: Lomito Especial">
             </b-form-input>
         </b-form-group>
+
         <b-form-group id="descripcion"
                         label="Descripción:"
                         label-for="descriProd">
-            <b-form-input id="descriProd"
+            <b-form-input id="descripcion"
                         type="text"
-                        v-model="form.descripcion"
+                        v-model="product.descripcion"
                         required
                         placeholder="Lomito Especial con huevo, jamón, lechuga, tomate, etc">
             </b-form-input>
         </b-form-group>
+
+        <b-form-group id="tipoProducto"
+                        label="Tipo Producto:"
+                        label-for="tipoProducto">
+                        <b-form-select  v-model="product.tipoProducto" required class="mb-3" >
+                          <option :value="null" > Seleccione una opción </option>
+                          <option value="1">Lomitos</option>
+                          <option value="2" >Hamburgesas</option>
+                          <option value="3">Sandwich de Miga</option>
+                          <option value="4" >Empanadas</option>
+                          <option value="5">Choripanes</option>
+                          <option value="6" >Pizzas</option>                                                    
+
+                        </b-form-select>
+           
+        </b-form-group>  
+
         <b-form-group id="precio"
                         label="Precio:"
                         label-for="precioProd">
-            <b-form-input id="precioProd"
+            <b-form-input id="precio"
                         type="number"
-                        v-model="form.precio"
+                        v-model="product.precio"
                         required
                         placeholder="$ 40">
             </b-form-input>
         </b-form-group>        
-        <b-form-group id="tipoProducto"
-                        label="Tipo de producto:"
-                        label-for="tipoProd">
-            <b-form-select id="tipoProd"
-                        :options="tipProd"
-                        required
-                        v-model="form.tipProd">
-            </b-form-select>
-        </b-form-group>
-        <b-form-group id="exampleGroup4">
-            <b-form-checkbox-group v-model="form.checked" id="exampleChecks">
-            <b-form-checkbox value="me">Check me out</b-form-checkbox>
-            <b-form-checkbox value="that">Check that out</b-form-checkbox>
-            </b-form-checkbox-group>
-        </b-form-group>
-        <b-button type="submit" variant="primary">Submit</b-button>
+        <b-button type="submit" variant="primary">{{ productSubmit }}</b-button>
         <b-button type="reset" variant="danger">Reset</b-button>
         </b-form>
       </b-container>  
@@ -60,37 +63,27 @@
 
 <script>
 export default {
-  data () {
-    return {
-      form: {
-        name: '',
-        descripcion: '',
-        precio: '',
-        tipProd: null,
-        checked: []
-      },
-      tipProd: [
-        { text: 'Seleccione', value: null },
-        'Lomitos', 'Carlitos', 'Pizzas', 'Sandwich de miga'
-      ],
-      show: true
-    }
-  },
+      props: {
+        product: {
+          type: Object,
+          required: true
+        },
+        productSubmit: {
+          type: String,
+          default: 'Crear todo'
+        }
+
+      },    
   methods: {
-    onSubmit (evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
     onReset (evt) {
       evt.preventDefault();
       /* Reset our form values */
-      this.form.name = '';
-      this.form.descripcion = '';
-      this.form.tipProd = null;
-      this.form.precio = [];
+      this.product.nombre = '';
+      this.product.descripcion = '';
+      this.product.precio = [];
+      this.product.tipoProducto = null;
       /* Trick to reset/clear native browser form validation state */
-      this.show = false;
-      this.$nextTick(() => { this.show = true });
+
     }
   }
 }

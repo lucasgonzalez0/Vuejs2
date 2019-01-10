@@ -1,4 +1,7 @@
 // son los datos , estado de mis productos
 export default {
-    products: []
+    products: [],
+    selectedProduct: null,
+    error: false,
+    errorMessage: ''
 }
